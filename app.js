@@ -6,7 +6,7 @@ var     express = require('express')
 var     bodyParser = require('body-parser')
 var     jwtAuth = require(__dirname + '/tokens/jwtauth')
 var     jwtValidate = require(__dirname + '/tokens/validator')
-
+var     port = process.env.PORT || 3000;
 // Express app setup
 var app = express();
 app.use(bodyParser.json())
@@ -25,6 +25,10 @@ router.get('/private',auth,function(req,res){
 
 app.use(router);
 
-app.listen(3000);
+app.listen(port);
 
-console.log('Listening on 3000')
+if (port === 3000){
+    console.log('Listening on 3000');
+} else {
+    console.log('Listening on ' + port );
+}
