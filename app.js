@@ -30,5 +30,6 @@ app.listen(port);
 if (port === 3000){
     console.log('Listening on 3000');
 } else {
+    alert('test');
     console.log('Listening on ' + port );
 }
